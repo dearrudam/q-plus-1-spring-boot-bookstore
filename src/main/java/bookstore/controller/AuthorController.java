@@ -20,8 +20,6 @@ public class AuthorController {
         this.authorRepository = authorRepository;
     }
 
-    // return all persisted authors
-    // curl -i http://localhost:8080/api/v1/authors
     @GetMapping
     @Transactional(readOnly = true)
     public Page<AuthorResponse> authors(@RequestParam(defaultValue = "1") int page,
