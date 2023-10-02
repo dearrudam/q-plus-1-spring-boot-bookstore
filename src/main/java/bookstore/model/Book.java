@@ -2,6 +2,7 @@ package bookstore.model;
 
 import com.github.javafaker.Faker;
 import jakarta.persistence.*;
+import org.hibernate.annotations.BatchSize;
 
 import java.util.LinkedHashSet;
 import java.util.Objects;
@@ -30,8 +31,8 @@ public class Book {
 
     private String publisher;
 
-    @ManyToMany(mappedBy = "books")
-    private Set<Author> authors = new LinkedHashSet<>();
+//    @ManyToMany(mappedBy = "books")
+//    private Set<Author> authors = new LinkedHashSet<>();
 
     /**
      * Don't use this constructor.
@@ -60,17 +61,17 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public Set<Author> getAuthors() {
-        return Set.copyOf(authors);
-    }
-
-    protected void assignTo(Author author) {
-        this.authors.add(author);
-    }
-
-    protected void unassignedFrom(Author author) {
-        this.authors.remove(author);
-    }
+//    public Set<Author> getAuthors() {
+//        return Set.copyOf(authors);
+//    }
+//
+//    protected void assignTo(Author author) {
+//        this.authors.add(author);
+//    }
+//
+//    protected void unassignedFrom(Author author) {
+//        this.authors.remove(author);
+//    }
 
     @Override
     public boolean equals(Object o) {

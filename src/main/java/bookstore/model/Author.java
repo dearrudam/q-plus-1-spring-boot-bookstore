@@ -2,8 +2,11 @@ package bookstore.model;
 
 import com.github.javafaker.Faker;
 import jakarta.persistence.*;
+import org.hibernate.annotations.BatchSize;
 
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Stream;
 
 @Entity
@@ -62,7 +65,7 @@ public class Author {
 
     public void add(Book book) {
         if (this.books.add(book)) {
-            book.assignTo(this);
+//            book.assignTo(this);
         }
     }
 
@@ -72,7 +75,7 @@ public class Author {
 
     public void remove(Book book) {
         if (this.books.remove(book)) {
-            book.unassignedFrom(this);
+//            book.unassignedFrom(this);
         }
     }
 
